@@ -1,1 +1,1 @@
-# LaTeX Tree-sitter
+# $\LaTeX$ Tree-sitter
