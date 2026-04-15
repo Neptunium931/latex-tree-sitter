@@ -1,0 +1,14 @@
+\input{regression-test}
+\documentclass{article}
+
+\usepackage{tree-sitter}
+
+\begin{document}
+\START
+
+\TEST{answer}
+{
+  \ASSERT{\TheAnswer}{42}
+}
+\END
+% vim: set filetype=tex:
