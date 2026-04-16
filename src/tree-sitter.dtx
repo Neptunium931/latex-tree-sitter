@@ -32,10 +32,9 @@
 \RequirePackage{shellesc}
 \RequirePackage{pgfkeys}
 \RequirePackage{environ}
-\ExplSyntaxOn
 
 \pgfkeys{
-  /tree/.is family, /tree,
+  /tree-sitter/.is family, /tree-sitter,
   language/.store in = \languageTreeSitter,
   language = c,
 }
@@ -47,7 +46,7 @@
 
 \NewEnviron{tree-sitter}[1][]
 {
-  \pgfkeys{/tree, #1}
+  \pgfkeys{/tree-sitter, #1}
   \ifx\ShellEscape\undefined
     \PackageError{shellesc}{Shell escape is not enabled}
   \fi
@@ -56,11 +55,10 @@
   \fi
 
   \ShellEscape{echo "\BODY" | tree-sitter highlight --scope=\buildScopeTreeSitter{\languageTreeSitter} > \tmpFileNameTreeSitter}
-  \input{\tmpFileNameTreeSitter}
+  % \input{\tmpFileNameTreeSitter}
   \ShellEscape{rm \tmpFileNameTreeSitter}
 }
 
-\ExplSyntaxOff
 %    \end{macrocode}
 %
 % \end{implementation}
