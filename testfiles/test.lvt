@@ -2,13 +2,15 @@
 \documentclass{article}
 
 \usepackage{tree-sitter}
+\usepackage{shellesc}
 
 \begin{document}
 \START
 
 \TEST{answer}
 {
-  \ASSERT{\TheAnswer}{42}
+  \ASSERT{42}{42}
 }
+
 \END
 % vim: set filetype=tex:

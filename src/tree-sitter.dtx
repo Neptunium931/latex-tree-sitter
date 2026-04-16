@@ -29,9 +29,36 @@
 %
 %    \begin{macrocode}
 \RequirePackage{expl3}
+\RequirePackage{shellesc}
+\RequirePackage{pgfkeys}
+\RequirePackage{environ}
 \ExplSyntaxOn
 
-\newcommand \TheAnswer {42}
+\pgfkeys{
+  /tree/.is family, /tree,
+  language/.store in = \languageTreeSitter,
+  language = c,
+}
+
+\newcommand{\tree-sitterLanguage}[1]{\pgfkeys{/tree-sitter/language=#1}}
+
+\newcommand{\buildScopeTreeSitter}[1]{source.#1}
+\def\tmpFileNameTreeSitter{/tmp/latexTreeSitter}
+
+\NewEnviron{tree-sitter}[1][]
+{
+  \pgfkeys{/tree, #1}
+  \ifx\ShellEscape\undefined
+    \PackageError{shellesc}{Shell escape is not enabled}
+  \fi
+  \ifnum\ShellEscapeStatus=0
+    \PackageError{shellesc}{Shell escape is disabled}
+  \fi
+
+  \ShellEscape{echo "\BODY" | tree-sitter highlight --scope=\buildScopeTreeSitter{\languageTreeSitter} > \tmpFileNameTreeSitter}
+  \input{\tmpFileNameTreeSitter}
+  \ShellEscape{rm \tmpFileNameTreeSitter}
+}
 
 \ExplSyntaxOff
 %    \end{macrocode}
