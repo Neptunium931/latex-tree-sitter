@@ -33,6 +33,13 @@
 % \end{tree-sitter}
 % \end{verbatim}
 %
+% You can also highlight the content of an external file with
+% |\treesitterinput|, which accepts the same |language| option and a
+% mandatory filename argument:
+% \begin{verbatim}
+% \treesitterinput[language=c]{main.c}
+% \end{verbatim}
+%
 % \begin{implementation}
 %
 % \section{Implementation}
@@ -71,7 +78,22 @@
   \fi
   \ShellEscape{echo "\BODY" | tree-sitter-highlight highlight --latex --scope=\buildScopeTreeSitter{\TreeSitterLanguage} > \jobname-tree-sitter-\theTreeSitter@counter}
   \input{\jobname-tree-sitter-\theTreeSitter@counter}
-  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
+
+  \ShellEscape{printf "\%b" "\BODY" > test.txt}
+}
+{}
+
+\newcommand{\treesitterinput}[1][]{%
+  \stepcounter{TreeSitter@counter}%
+  \ifx\ShellEscape\undefined
+    \PackageError{tree-sitter}{Shell escape is not enabled}
+  \fi
+  \ifnum\ShellEscapeStatus=0
+    \PackageError{tree-sitter}{Shell escape is disabled}
+  \fi
+  \newcommand{\inputfilename}{#1}%
+  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\theTreeSitter@counter}%
+  \input{\jobname-tree-sitter-\theTreeSitter@counter}%
 }
 
 %    \end{macrocode}
