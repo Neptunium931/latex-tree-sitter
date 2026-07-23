@@ -14,26 +14,66 @@
 % \fi
 %
 % \title{The \textsf{tree-sitter} package}
-% \author{Your Name}
+% \author{Tymothé BILLEREY}
 % \maketitle
 %
 % \section{Introduction}
-% This package provides...
+% This package provides syntax highlighting for source code in LaTeX
+% using the \texttt{tree-sitter-highlight} command-line tool.
+% It requires shell escape to be enabled and works only on Linux.
 %
 % \section{Usage}
-% Load it with |\usepackage{tree-sitter}|
+% Load it with |\usepackage{tree-sitter}|.
+% Use the |tree-sitter| environment with a |language| option:
+% \begin{verbatim}
+% \begin{tree-sitter}[language=c]
+% int main(int argc, char **argv) {
+%     return 0;
+% }
+% \end{tree-sitter}
+% \end{verbatim}
 %
 % \begin{implementation}
 %
 % \section{Implementation}
 %
-%    \begin{macrocode}
+%    \begin{macrocode}{pkg}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tree-sitter}[2026/04/15 v1.0.0 Code highlighting with tree-sitter]
+
 \RequirePackage{expl3}
-\ExplSyntaxOn
+\RequirePackage{shellesc}
+\RequirePackage{pgfkeys}
+\RequirePackage{environ}
+\RequirePackage{xcolor}
 
-\newcommand \TheAnswer {42}
+\pgfkeys{
+  /tree-sitter/.is family,
+  /tree-sitter,
+  /tree-sitter/language/.store in=\TreeSitterLanguage,
+  /tree-sitter/language/.initial=c,
+}
 
-\ExplSyntaxOff
+\newcommand{\treeSitterLanguage}[1]{\pgfkeys{/tree-sitter/language=#1}}
+
+\newcommand{\buildScopeTreeSitter}[1]{source.#1}
+
+\newcounter{TreeSitter@counter}
+\NewEnviron{tree-sitter}[1][]
+{
+  \pgfkeys{/tree-sitter, #1}
+  \stepcounter{TreeSitter@counter}
+  \ifx\ShellEscape\undefined
+    \PackageError{tree-sitter}{Shell escape is not enabled}
+  \fi
+  \ifnum\ShellEscapeStatus=0
+    \PackageError{tree-sitter}{Shell escape is disabled}
+  \fi
+  \ShellEscape{echo "\BODY" | tree-sitter-highlight highlight --latex --scope=\buildScopeTreeSitter{\TreeSitterLanguage} > \jobname-tree-sitter-\theTreeSitter@counter}
+  \input{\jobname-tree-sitter-\theTreeSitter@counter}
+  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
+}
+
 %    \end{macrocode}
 %
 % \end{implementation}

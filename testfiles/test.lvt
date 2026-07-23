@@ -6,9 +6,14 @@
 \begin{document}
 \START
 
-\TEST{answer}
+\TEST{tree-sitter environment with C code}
 {
-  \ASSERT{\TheAnswer}{42}
+  \begin{tree-sitter}[language=c]
+int main(int argc, char **argv) {
+    return 0;
 }
+\end{tree-sitter}
+}
+
 \END
 % vim: set filetype=tex:
