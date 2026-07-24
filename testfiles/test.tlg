@@ -1,7 +1,391 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 ============================================================
-TEST 1: answer
+TEST 1: tree-sitter environment with C code
 ============================================================
-PASSED
+runsystem(echo "int main(int argc, char **argv) { return 0; }" | tree-sitter-highlight highlight --latex --scope=source.c > test-tree-sitter-1)...executed.
+(test-tree-sitter-1
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line ....
+! Undefined control sequence.
+<argument> ...} \begin {tabular}{l|l} \scriptsize 
+                                                  1 & \textcolor [rgb]{0,0.3...
+l. ...}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line ....
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line ....
+)
+runsystem(rm test-tree-sitter-1)...executed.
 ============================================================
+Overfull \hbox (33.46664pt too wide) in paragraph at lines ...
+[][]
+\hbox(11.9+6.9)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\hbox(11.9+6.9)x483.22163
+..\hbox(11.9+6.9)x483.22163
+...\hbox(18.79999+0.0)x483.22163, shifted 6.9
+....\vbox(18.79999+0.0)x483.22163
+.....\kern 0.4
+.....\hbox(18.0+0.0)x483.22163
+......\kern 0.4
+......\vbox(18.0+0.0)x482.42165
+.......\kern 3.0
+.......\hbox(8.5+3.5)x482.42165
+........\kern 3.0
+........\glue 3.33333 plus 1.66666 minus 1.11111
+........\mathon
+........\vbox(8.5+3.5)x469.75499
+.........\hbox(8.5+3.5)x469.75499, glue set 269.47668fil
+..........\hbox(0.0+0.0)x-5.0
+..........\hbox(8.5+3.5)x205.2783
+...........\mathon
+...........\vbox(8.5+3.5)x205.2783
+............\hbox(8.39996+3.60004)x205.2783
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x7.00015
+..............\rule(8.39996+3.60004)x0.0
+..............\glue 1.00006
+..............\glue 0.00002
+..............\OT1/cmr/m/n/10 1
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+..............\glue 0.0
+..............\rule(*+*)x0.0
+..............\glue 0.0
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x198.27815
+..............\glue 1.00006
+..............\glue 0.00002
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\rule(*+*)x0.0
+..............\penalty 10000
+..............\glue 0.0
+..............\glue 0.0
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 t
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0 0.37254903 0.84313726 rg 0 0.37254903 0.84313726 RG}
+..............\OT1/cmr/m/n/10 m
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 (
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 t
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.8156863 0.8156863 0.8156863 rg 0.8156863 0.8156863 0.8156863 RG}
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 g
+..............\OT1/cmr/m/n/10 c
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 ,
+..............\glue 3.33333 plus 2.08331 minus 0.88889
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\OT1/cmr/m/n/10 c
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 h
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.30588236 0.30588236 0.30588236 rg 0.30588236 0.30588236 0.30588236 RG}
+..............\OT1/cmr/bx/n/10 *
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\pdfcolorstack 0 push {0.30588236 0.30588236 0.30588236 rg 0.30588236 0.30588236 0.30588236 RG}
+..............\OT1/cmr/bx/n/10 *
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\pdfcolorstack 0 push {0.8156863 0.8156863 0.8156863 rg 0.8156863 0.8156863 0.8156863 RG}
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 g
+..............\OT1/cmr/m/n/10 v
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 )
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\OMS/cmsy/m/n/10 f
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.37254903 0 0.84313726 rg 0.37254903 0 0.84313726 RG}
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 e
+..............\OT1/cmr/m/n/10 t
+..............\OT1/cmr/m/n/10 u
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 n
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.5294118 0.37254903 0 rg 0.5294118 0.37254903 0 RG}
+..............\OT1/cmr/bx/n/10 0
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 ;
+..............\glue 3.33333 plus 2.49998 minus 0.74074
+..............\OMS/cmsy/m/n/10 g
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+.............\glue(\tabskip) 0.0
+...........\mathoff
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0
+........\mathoff
+........\glue 3.33333 plus 1.66666 minus 1.11111
+........\kern 3.0
+.......\kern 3.0
+......\kern 0.4
+.....\kern 0.4
+..\kern -483.22163
+..\hbox(11.9+6.9)x483.22163
+...\vbox(18.79999+0.0)x483.22163, shifted 6.9
+....\rule(0.4+0.0)x*
+....\kern -0.2
+....\hbox(18.4+0.0)x483.22163
+.....\rule(18.4+0.0)x0.4
+.....\kern 482.42165
+.....\rule(18.4+0.0)x0.4
+....\kern -0.2
+....\rule(0.4+0.0)x*
+.\glue(\rightskip) 0.0
+Underfull \hbox (badness 10000) in paragraph at lines ...
+\hbox(0.0+0.0)x469.75499
+.\glue(\rightskip) 0.0
+[1]
+============================================================
+TEST 2: tree-sitter \\treesitterinput with C code
+============================================================
+runsystem(tree-sitter-highlight highlight --latex "a.c" > test-tree-sitter-2)...executed.
+(test-tree-sitter-2
+! Undefined control sequence.
+<argument> ...} \begin {tabular}{l|l} \scriptsize 
+                                                  1 & \textcolor [rgb]{0,0.3...
+l. ...}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+! Undefined control sequence.
+<recently read> \scriptsize 
+l. ...}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+! Undefined control sequence.
+<recently read> \scriptsize 
+l. ...}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+)
+runsystem(rm test-tree-sitter-2)...executed.
+============================================================
+Overfull \hbox (33.46664pt too wide) in paragraph at lines ...
+[][]
+\hbox(23.9+18.9)x469.75499
+.\hbox(0.0+0.0)x20.0
+.\hbox(23.9+18.9)x483.22163
+..\hbox(23.9+18.9)x483.22163
+...\hbox(42.79999+0.0)x483.22163, shifted 18.9
+....\vbox(42.79999+0.0)x483.22163
+.....\kern 0.4
+.....\hbox(42.0+0.0)x483.22163
+......\kern 0.4
+......\vbox(42.0+0.0)x482.42165
+.......\kern 3.0
+.......\hbox(20.5+15.5)x482.42165
+........\kern 3.0
+........\glue 3.33333 plus 1.66666 minus 1.11111
+........\mathon
+........\vbox(20.5+15.5)x469.75499
+.........\hbox(20.5+15.5)x469.75499, glue set 320.28227fil
+..........\hbox(0.0+0.0)x-5.0
+..........\hbox(20.5+15.5)x154.47272
+...........\mathon
+...........\vbox(20.5+15.5)x154.47272
+............\hbox(8.39996+3.60004)x154.47272
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x7.00015
+..............\rule(8.39996+3.60004)x0.0
+..............\glue 1.00006
+..............\glue 0.00002
+..............\OT1/cmr/m/n/10 1
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+..............\glue 0.0
+..............\rule(*+*)x0.0
+..............\glue 0.0
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x147.47256
+..............\glue 1.00006
+..............\glue 0.00002
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\rule(*+*)x0.0
+..............\penalty 10000
+..............\glue 0.0
+..............\glue 0.0
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 t
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0 0.37254903 0.84313726 rg 0 0.37254903 0.84313726 RG}
+..............\OT1/cmr/m/n/10 m
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 (
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\OT1/cmr/m/n/10 i
+..............\OT1/cmr/m/n/10 n
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 t
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.8156863 0.8156863 0.8156863 rg 0.8156863 0.8156863 0.8156863 RG}
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 g
+..............\OT1/cmr/m/n/10 c
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 ,
+..............\glue 3.33333 plus 2.08331 minus 0.88889
+..............\pdfcolorstack 0 push {0 0.37254903 0.37254903 rg 0 0.37254903 0.37254903 RG}
+..............\OT1/cmr/m/n/10 c
+..............\kern-0.27779
+..............\OT1/cmr/m/n/10 h
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.30588236 0.30588236 0.30588236 rg 0.30588236 0.30588236 0.30588236 RG}
+..............\OT1/cmr/bx/n/10 *
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\pdfcolorstack 0 push {0.30588236 0.30588236 0.30588236 rg 0.30588236 0.30588236 0.30588236 RG}
+..............\OT1/cmr/bx/n/10 *
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\pdfcolorstack 0 push {0.8156863 0.8156863 0.8156863 rg 0.8156863 0.8156863 0.8156863 RG}
+..............\OT1/cmr/m/n/10 a
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 g
+..............\OT1/cmr/m/n/10 v
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 )
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\OMS/cmsy/m/n/10 f
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+.............\glue(\tabskip) 0.0
+............\glue(\lineskip) 0.0
+............\hbox(8.39996+3.60004)x154.47272
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x7.00015
+..............\rule(8.39996+3.60004)x0.0
+..............\glue 1.00006
+..............\glue 0.00002
+..............\OT1/cmr/m/n/10 2
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+..............\glue 0.0
+..............\rule(*+*)x0.0
+..............\glue 0.0
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x147.47256, glue set 86.33348fil
+..............\glue 1.00006
+..............\glue 0.00002
+..............\pdfcolorstack 0 push {0.37254903 0 0.84313726 rg 0.37254903 0 0.84313726 RG}
+..............\rule(*+*)x0.0
+..............\penalty 10000
+..............\glue 20.00003
+..............\glue 0.0
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 e
+..............\OT1/cmr/m/n/10 t
+..............\OT1/cmr/m/n/10 u
+..............\OT1/cmr/m/n/10 r
+..............\OT1/cmr/m/n/10 n
+..............\pdfcolorstack 0 pop
+..............\glue 3.33333 plus 1.66666 minus 1.11111
+..............\pdfcolorstack 0 push {0.5294118 0.37254903 0 rg 0.5294118 0.37254903 0 RG}
+..............\OT1/cmr/bx/n/10 0
+..............\kern 0.0
+..............\pdfcolorstack 0 pop
+..............\OT1/cmr/m/n/10 ;
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+.............\glue(\tabskip) 0.0
+............\glue(\lineskip) 0.0
+............\hbox(8.39996+3.60004)x154.47272
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x7.00015
+..............\rule(8.39996+3.60004)x0.0
+..............\glue 1.00006
+..............\glue 0.00002
+..............\OT1/cmr/m/n/10 3
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+..............\glue 0.0
+..............\rule(*+*)x0.0
+..............\glue 0.0
+.............\glue(\tabskip) 0.0
+.............\hbox(8.39996+3.60004)x147.47256, glue set 140.47241fil
+..............\glue 1.00006
+..............\glue 0.00002
+..............\rule(*+*)x0.0
+..............\penalty 10000
+..............\glue 0.0
+..............\glue 0.0
+..............\OMS/cmsy/m/n/10 g
+..............\glue 0.0 plus 1.0fil
+..............\glue 1.00006
+.............\glue(\tabskip) 0.0
+...........\mathoff
+..........\penalty 10000
+..........\glue(\parfillskip) 0.0 plus 1.0fil
+..........\glue(\rightskip) 0.0
+........\mathoff
+........\glue 3.33333 plus 1.66666 minus 1.11111
+........\kern 3.0
+.......\kern 3.0
+......\kern 0.4
+.....\kern 0.4
+..\kern -483.22163
+..\hbox(23.9+18.9)x483.22163
+...\vbox(42.79999+0.0)x483.22163, shifted 18.9
+....\rule(0.4+0.0)x*
+....\kern -0.2
+....\hbox(42.4+0.0)x483.22163
+.....\rule(42.4+0.0)x0.4
+.....\kern 482.42165
+.....\rule(42.4+0.0)x0.4
+....\kern -0.2
+....\rule(0.4+0.0)x*
+.\glue(\rightskip) 0.0
+Underfull \hbox (badness 10000) in paragraph at lines ...
+\hbox(0.0+0.0)x469.75499
+.\glue(\rightskip) 0.0
+[2] (test.aux)

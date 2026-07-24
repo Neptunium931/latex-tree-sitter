@@ -78,8 +78,7 @@
   \fi
   \ShellEscape{echo "\BODY" | tree-sitter-highlight highlight --latex --scope=\buildScopeTreeSitter{\TreeSitterLanguage} > \jobname-tree-sitter-\theTreeSitter@counter}
   \input{\jobname-tree-sitter-\theTreeSitter@counter}
-
-  \ShellEscape{printf "\%b" "\BODY" > test.txt}
+  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
 }
 {}
 
@@ -94,6 +93,7 @@
   \newcommand{\inputfilename}{#1}%
   \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\theTreeSitter@counter}%
   \input{\jobname-tree-sitter-\theTreeSitter@counter}%
+  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}%
 }
 
 %    \end{macrocode}

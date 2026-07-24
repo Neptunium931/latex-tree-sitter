@@ -1,5 +1,4 @@
 build
-*.tlg
 src/*.sty
 src/*.log
 *.aux

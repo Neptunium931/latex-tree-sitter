@@ -1,5 +1,6 @@
 \input{regression-test}
-\documentclass{article}
+
+\documentclass{minimal}
 
 \usepackage{tree-sitter}
 
@@ -9,11 +10,19 @@
 \TEST{tree-sitter environment with C code}
 {
   \begin{tree-sitter}[language=c]
-int main(int argc, char **argv) {
-    return 0;
-}
-\end{tree-sitter}
+    int main(int argc, char **argv) {
+      return 0;
+    }
+  \end{tree-sitter}
 }
 
-\END
+\newpage
+
+\TEST{tree-sitter \\treesitterinput with C code}
+{
+  \treesitterinput[a.c]
+}
+
+% \END
+\end{document}
 % vim: set filetype=tex:
