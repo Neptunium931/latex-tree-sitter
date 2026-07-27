@@ -20,7 +20,7 @@
 
 \TEST{tree-sitter \\treesitterinput with C code}
 {
-  \treesitterinput[a.c]
+  \treesitterinput{a.c}
 }
 
 % \END

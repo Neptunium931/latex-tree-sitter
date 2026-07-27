@@ -76,13 +76,14 @@
   \ifnum\ShellEscapeStatus=0
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
+
   \ShellEscape{echo "\BODY" | tree-sitter-highlight highlight --latex --scope=\buildScopeTreeSitter{\TreeSitterLanguage} > \jobname-tree-sitter-\theTreeSitter@counter}
   \input{\jobname-tree-sitter-\theTreeSitter@counter}
   \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
 }
 {}
 
-\newcommand{\treesitterinput}[1][]{%
+\newcommand{\treesitterinput}[2][]{%
   \stepcounter{TreeSitter@counter}%
   \ifx\ShellEscape\undefined
     \PackageError{tree-sitter}{Shell escape is not enabled}
@@ -90,7 +91,7 @@
   \ifnum\ShellEscapeStatus=0
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
-  \newcommand{\inputfilename}{#1}%
+  \newcommand{\inputfilename}{#2}%
   \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\theTreeSitter@counter}%
   \input{\jobname-tree-sitter-\theTreeSitter@counter}%
   \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}%
