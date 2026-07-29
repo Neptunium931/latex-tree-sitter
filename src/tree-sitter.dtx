@@ -53,6 +53,7 @@
 \RequirePackage{pgfkeys}
 \RequirePackage{environ}
 \RequirePackage{xcolor}
+\RequirePackage{fancyvrb}
 
 \pgfkeys{
   /tree-sitter/.is family,
@@ -67,7 +68,7 @@
 
 \newcounter{TreeSitter@counter}
 \NewEnviron{tree-sitter}[1][]
-{
+{%
   \pgfkeys{/tree-sitter, #1}
   \stepcounter{TreeSitter@counter}
   \ifx\ShellEscape\undefined
@@ -76,12 +77,17 @@
   \ifnum\ShellEscapeStatus=0
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
-
-  \ShellEscape{echo "\BODY" | tree-sitter-highlight highlight --latex --scope=\buildScopeTreeSitter{\TreeSitterLanguage} > \jobname-tree-sitter-\theTreeSitter@counter}
+  \VerbatimEnvironment
+  \begin{VerbatimOut}{\jobname-tree-sitter-input-\theTreeSitter@counter}
+}
+{
+  \end{VerbatimOut}%
+  \ShellEscape{cat "\jobname-tree-sitter-input-\theTreeSitter@counter" | 
+  tree-sitter-highlight highlight --scope-tree "\buildScopeTreeSitter{\TreeSitterLanguage}" > "\jobname-tree-sitter-\theTreeSitter@counter"}%
   \input{\jobname-tree-sitter-\theTreeSitter@counter}
   \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
+  \ShellEscape{rm "\jobname-tree-sitter-input-\theTreeSitter@counter"}
 }
-{}
 
 \newcommand{\treesitterinput}[2][]{%
   \stepcounter{TreeSitter@counter}%
