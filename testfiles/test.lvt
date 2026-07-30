@@ -1,6 +1,6 @@
 \input{regression-test}
 
-\documentclass{minimal}
+\documentclass{article}
 
 \usepackage{tree-sitter}
 
@@ -9,11 +9,11 @@
 
 \TEST{tree-sitter environment with C code}
 {
-  \begin{tree-sitter}[language=c]
-    int main(int argc, char **argv) {
-      return 0;
-    }
-  \end{tree-sitter}
+\begin{tree-sitter}[language=c]
+int main(int argc, char **argv) {
+  return 0;
+}
+\end{tree-sitter}
 }
 
 \newpage

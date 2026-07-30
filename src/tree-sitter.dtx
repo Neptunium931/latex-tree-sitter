@@ -48,10 +48,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{tree-sitter}[2026/04/15 v1.0.0 Code highlighting with tree-sitter]
 
-\RequirePackage{expl3}
 \RequirePackage{shellesc}
 \RequirePackage{pgfkeys}
-\RequirePackage{environ}
 \RequirePackage{xcolor}
 \RequirePackage{fancyvrb}
 
@@ -66,9 +64,13 @@
 
 \newcommand{\buildScopeTreeSitter}[1]{source.#1}
 
+\makeatletter
 \newcounter{TreeSitter@counter}
-\NewEnviron{tree-sitter}[1][]
-{%
+\newcommand{\TreeSitterCounter}{\arabic{TreeSitter@counter}}
+\makeatother
+
+\newenvironment{tree-sitter}[1][]
+{
   \pgfkeys{/tree-sitter, #1}
   \stepcounter{TreeSitter@counter}
   \ifx\ShellEscape\undefined
@@ -78,15 +80,11 @@
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
   \VerbatimEnvironment
-  \begin{VerbatimOut}{\jobname-tree-sitter-input-\theTreeSitter@counter}
-}
-{
-  \end{VerbatimOut}%
-  \ShellEscape{cat "\jobname-tree-sitter-input-\theTreeSitter@counter" | 
-  tree-sitter-highlight highlight --scope-tree "\buildScopeTreeSitter{\TreeSitterLanguage}" > "\jobname-tree-sitter-\theTreeSitter@counter"}%
-  \input{\jobname-tree-sitter-\theTreeSitter@counter}
-  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}
-  \ShellEscape{rm "\jobname-tree-sitter-input-\theTreeSitter@counter"}
+  \begin{VerbatimOut}{\jobname-tree-sitter-input-\TreeSitterCounter.}
+}{
+  \end{VerbatimOut}
+  \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter." | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}" > \jobname-tree-sitter-\TreeSitterCounter}
+  \input{\jobname-tree-sitter-\TreeSitterCounter}
 }
 
 \newcommand{\treesitterinput}[2][]{%
