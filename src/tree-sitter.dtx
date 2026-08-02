@@ -74,17 +74,19 @@
   \pgfkeys{/tree-sitter, #1}
   \stepcounter{TreeSitter@counter}
   \ifx\ShellEscape\undefined
-    \PackageError{tree-sitter}{Shell escape is not enabled}
+    \PackageError{tree-sitter}{Shell escape is not enabled}{add shell-escape for build tex file}
   \fi
   \ifnum\ShellEscapeStatus=0
-    \PackageError{tree-sitter}{Shell escape is disabled}
+    \PackageError{tree-sitter}{Shell escape is disabled}{add shell-escape for build tex file}
   \fi
   \VerbatimEnvironment
   \begin{VerbatimOut}{\jobname-tree-sitter-input-\TreeSitterCounter.}
 }{
   \end{VerbatimOut}
-  \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter." | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}" > \jobname-tree-sitter-\TreeSitterCounter}
-  \input{\jobname-tree-sitter-\TreeSitterCounter}
+  \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter." | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}" > \jobname-tree-sitter-\TreeSitterCounter.}
+  \input{\jobname-tree-sitter-\TreeSitterCounter.}
+  \ShellEscape{rm \jobname-tree-sitter-input-\TreeSitterCounter.}
+  \ShellEscape{rm \jobname-tree-sitter-\TreeSitterCounter.}
 }
 
 \newcommand{\treesitterinput}[2][]{%
@@ -96,9 +98,9 @@
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
   \newcommand{\inputfilename}{#2}%
-  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\theTreeSitter@counter}%
-  \input{\jobname-tree-sitter-\theTreeSitter@counter}%
-  \ShellEscape{rm \jobname-tree-sitter-\theTreeSitter@counter}%
+  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\TreeSitterCounter.}
+  \input{\jobname-tree-sitter-\TreeSitterCounter.}%
+  \ShellEscape{rm \jobname-tree-sitter-\TreeSitterCounter.}%
 }
 
 %    \end{macrocode}
