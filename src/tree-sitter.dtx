@@ -80,7 +80,7 @@
     \PackageError{tree-sitter}{Shell escape is disabled}{add shell-escape for build tex file}
   \fi
   \VerbatimEnvironment
-  \begin{VerbatimOut}{\jobname-tree-sitter-input-\TreeSitterCounter.}
+  \begin{VerbatimOut}{\jobname-tree-sitter-input-\TreeSitterCounter.}%
 }{
   \end{VerbatimOut}
   \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter." | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}" > \jobname-tree-sitter-\TreeSitterCounter.}
@@ -98,7 +98,7 @@
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
   \newcommand{\inputfilename}{#2}%
-  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\TreeSitterCounter.}
+  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\TreeSitterCounter.}%
   \input{\jobname-tree-sitter-\TreeSitterCounter.}%
   \ShellEscape{rm \jobname-tree-sitter-\TreeSitterCounter.}%
 }

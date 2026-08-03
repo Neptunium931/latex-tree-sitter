@@ -1,6 +1,6 @@
 build
 src/*.sty
-src/*.log
+*.log
 *.aux
 *.toc
 *.out
