@@ -1,1 +1,12 @@
 build
+src/*.sty
+*.log
+*.aux
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+test-tree-sitter-*
