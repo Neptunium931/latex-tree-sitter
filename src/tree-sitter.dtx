@@ -1,53 +1,34 @@
-% \iffalse meta-comment
-% File: tree-sitter.dtx
+% \iffalse
+%
+\ProvidesFile{tree-sitter.dtx}
+%
+%\ProvidesPackage{tree-sitter}
+[2026/08/04 v1.0.0 LaTex bindings for tree-sitter]
+%
+%<*driver>
+\documentclass{ltxdoc}
+\EnableCrossrefs
+\CodelineIndex
+\begin{document}
+  \DocInput{tree-sitter.dtx}
+\end{document}
+%</driver>
 % \fi
 %
-%\NeedsTeXFormat{LaTeX2e}
-%\ProvidesPackage{tree-sitter}[2026/04/15 v1.0.0 My package description]
-%
-% \documentclass{l3doc}
-% \usepackage{xparse}
-% \begin{document}
-% \DocInput{tree-sitter.dtx}
-% \end{document}
-%
-% \fi
-%
-% \title{The \textsf{tree-sitter} package}
-% \author{Tymothé BILLEREY}
+% \GetFileInfo{tree-sitter.dtx}
+% \title{LaTex bindings for tree-sitter}
+% \date{\filedate\qquad\fileversion}
 % \maketitle
+% \begin{abstract}
+% This is the implementation of the simple-tree example.
+% \end{abstract}
 %
-% \section{Introduction}
-% This package provides syntax highlighting for source code in LaTeX
-% using the \texttt{tree-sitter-highlight} command-line tool.
-% It requires shell escape to be enabled and works only on Linux.
 %
-% \section{Usage}
-% Load it with |\usepackage{tree-sitter}|.
-% Use the |tree-sitter| environment with a |language| option:
-% \begin{verbatim}
-% \begin{tree-sitter}[language=c]
-% int main(int argc, char **argv) {
-%     return 0;
-% }
-% \end{tree-sitter}
-% \end{verbatim}
-%
-% You can also highlight the content of an external file with
-% |\treesitterinput|, which accepts the same |language| option and a
-% mandatory filename argument:
-% \begin{verbatim}
-% \treesitterinput[language=c]{main.c}
-% \end{verbatim}
-%
-% \begin{implementation}
+% \tableofcontents
 %
 % \section{Implementation}
 %
-%    \begin{macrocode}{pkg}
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{tree-sitter}[2026/04/15 v1.0.0 Code highlighting with tree-sitter]
-
+%    \begin{macrocode}
 \RequirePackage{shellesc}
 \RequirePackage{pgfkeys}
 \RequirePackage{xcolor}
@@ -74,16 +55,20 @@
   \pgfkeys{/tree-sitter, #1}
   \stepcounter{TreeSitter@counter}
   \ifx\ShellEscape\undefined
-    \PackageError{tree-sitter}{Shell escape is not enabled}{add shell-escape for build tex file}
+    \PackageError{tree-sitter}{Shell escape is not enabled}
+    {add shell-escape for build tex file}
   \fi
   \ifnum\ShellEscapeStatus=0
-    \PackageError{tree-sitter}{Shell escape is disabled}{add shell-escape for build tex file}
+    \PackageError{tree-sitter}{Shell escape is disabled}
+    {add shell-escape for build tex file}
   \fi
   \VerbatimEnvironment
   \begin{VerbatimOut}{\jobname-tree-sitter-input-\TreeSitterCounter.}%
 }{
   \end{VerbatimOut}
-  \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter." | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}" > \jobname-tree-sitter-\TreeSitterCounter.}
+  \ShellEscape{cat "\jobname-tree-sitter-input-\TreeSitterCounter."
+  | tree-sitter-highlight highlight -L --scope "\buildScopeTreeSitter{\TreeSitterLanguage}"
+  > \jobname-tree-sitter-\TreeSitterCounter.}
   \input{\jobname-tree-sitter-\TreeSitterCounter.}
   \ShellEscape{rm \jobname-tree-sitter-input-\TreeSitterCounter.}
   \ShellEscape{rm \jobname-tree-sitter-\TreeSitterCounter.}
@@ -98,11 +83,12 @@
     \PackageError{tree-sitter}{Shell escape is disabled}
   \fi
   \newcommand{\inputfilename}{#2}%
-  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename" > \jobname-tree-sitter-\TreeSitterCounter.}%
+  \ShellEscape{tree-sitter-highlight highlight --latex "\inputfilename"
+  > \jobname-tree-sitter-\TreeSitterCounter.}%
   \input{\jobname-tree-sitter-\TreeSitterCounter.}%
   \ShellEscape{rm \jobname-tree-sitter-\TreeSitterCounter.}%
 }
 
 %    \end{macrocode}
 %
-% \end{implementation}
+% \Finale

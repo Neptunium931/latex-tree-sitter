@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{tree-sitter}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Documentation for tree-sitter module}
+\author{Tymothé BILLEREY}
+\maketitle
+
+\section{Introduction}
+
+This module provides a simple way to highlight a source code with a tree-sitter
+parser.
+
+The \verb|tree-sitter| environment takes one optional argument, the language to
+use.
+The default language is \verb|c|.
+
+The \verb|tree-sitter| environment takes a verbatim environment as argument.
+
+The \verb|treesitterinput| command takes one mandatory argument, the path to the
+source code.
+
+\section{Requirements}
+
+You need a working \verb|tree-sitter-highlight|\footnotemark[1] and tree-sitter
+grammar highlighting for the language you want to use.
+
+\footnotetext[1]{\url{https://github.com/Neptunium931/tree-sitter-highlight}}
+
+\section{Example}
+
+\begin{verbatim}
+\begin{tree-sitter}[language=c]
+int main(int argc, char **argv) {
+  printf("Hello World!\n");
+}
+\end{tree-sitter}
+\end{verbatim}
+\begin{tree-sitter}[language=c]
+int main(int argc, char **argv) {
+  printf("Hello World!\n");
+}
+\end{tree-sitter}
+
+\end{document}
