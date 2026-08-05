@@ -25,3 +25,7 @@ int main(int argc, char **argv) {
 ```
 
 ![Example](./.github/assets/example.png)
+
+## Contributing
+
+Pull requests are welcome. Feel free to open an issue if you want to add other features.
